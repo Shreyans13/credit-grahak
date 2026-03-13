@@ -1,0 +1,256 @@
+.kyc-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.kyc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.back-button:hover {
+  background: #f1f5f9;
+}
+
+.back-button .material-icons {
+  color: #64748b;
+  font-size: 24px;
+}
+
+.header-spacer {
+  width: 40px;
+}
+
+.kyc-content {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a4f93;
+}
+
+.step-count {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1a4f93, #3b82f6);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.section-header {
+  margin-top: 8px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-input {
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #ffffff;
+}
+
+.form-input:focus {
+  border-color: #1a4f93;
+}
+
+.form-input::placeholder {
+  color: #94a3b8;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon .form-input {
+  padding-right: 44px;
+}
+
+.input-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 20px;
+}
+
+.gender-options {
+  display: flex;
+  gap: 12px;
+}
+
+.gender-option {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #ffffff;
+}
+
+.gender-option input {
+  display: none;
+}
+
+.gender-option:hover {
+  border-color: #cbd5e1;
+}
+
+.gender-option.selected {
+  border-color: #1a4f93;
+  background: #eff6ff;
+}
+
+.gender-icon {
+  font-size: 24px;
+  color: #64748b;
+}
+
+.gender-option.selected .gender-icon {
+  color: #1a4f93;
+}
+
+.gender-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.gender-option.selected .gender-label {
+  color: #1a4f93;
+  font-weight: 600;
+}
+
+.info-box {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  background: #eff6ff;
+  border-radius: 10px;
+  border: 1px solid #dbeafe;
+}
+
+.info-icon {
+  color: #3b82f6;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.info-text {
+  font-size: 13px;
+  color: #1e40af;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.continue-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 24px;
+  background: #1a4f93;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(26, 79, 147, 0.3);
+  margin-top: auto;
+}
+
+.continue-button:hover:not(:disabled) {
+  background: #153d73;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(26, 79, 147, 0.4);
+}
+
+.continue-button:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.continue-button .material-icons {
+  font-size: 20px;
+}

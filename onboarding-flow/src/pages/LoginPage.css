@@ -1,0 +1,247 @@
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.login-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.back-button:hover {
+  background: #f1f5f9;
+}
+
+.back-button .material-icons {
+  color: #64748b;
+  font-size: 24px;
+}
+
+.header-spacer {
+  width: 40px;
+}
+
+.login-content {
+  flex: 1;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.login-intro {
+  text-align: center;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.login-subtitle {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.phone-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.phone-input-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  transition: border-color 0.2s;
+}
+
+.phone-input-container:focus-within {
+  border-color: #1a4f93;
+}
+
+.country-code {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  padding-right: 12px;
+  border-right: 1px solid #e2e8f0;
+}
+
+.phone-input {
+  flex: 1;
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: #1e293b;
+  outline: none;
+}
+
+.phone-input::placeholder {
+  color: #94a3b8;
+}
+
+.phone-icon {
+  color: #94a3b8;
+  font-size: 20px;
+}
+
+.send-otp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 24px;
+  background: #1a4f93;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(26, 79, 147, 0.3);
+  margin-top: 8px;
+}
+
+.send-otp-button:hover:not(:disabled) {
+  background: #153d73;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(26, 79, 147, 0.4);
+}
+
+.send-otp-button:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.send-otp-button .material-icons {
+  font-size: 20px;
+}
+
+.terms-text {
+  font-size: 12px;
+  color: #64748b;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.otp-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.otp-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.otp-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.otp-input-container {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.otp-input {
+  width: 100%;
+  padding: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 8px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #ffffff;
+}
+
+.otp-input:focus {
+  border-color: #1a4f93;
+}
+
+.resend-text {
+  font-size: 14px;
+  color: #64748b;
+  text-align: center;
+}
+
+.resend-link {
+  background: none;
+  border: none;
+  color: #1a4f93;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.resend-link:hover {
+  text-decoration: underline;
+}
+
+.verify-button {
+  width: 100%;
+  padding: 16px 24px;
+  background: #1a4f93;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(26, 79, 147, 0.3);
+  margin-top: 8px;
+}
+
+.verify-button:hover:not(:disabled) {
+  background: #153d73;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(26, 79, 147, 0.4);
+}
+
+.verify-button:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  box-shadow: none;
+}

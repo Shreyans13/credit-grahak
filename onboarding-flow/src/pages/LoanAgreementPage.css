@@ -1,0 +1,222 @@
+.agreement-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.agreement-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.back-button:hover {
+  background: #f1f5f9;
+}
+
+.back-button .material-icons {
+  color: #64748b;
+  font-size: 24px;
+}
+
+.header-spacer {
+  width: 40px;
+}
+
+.agreement-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a4f93;
+}
+
+.step-count {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1a4f93, #3b82f6);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.review-header {
+  margin-top: 8px;
+}
+
+.review-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+}
+
+.review-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.sections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.section-card.expanded {
+  border-color: #cbd5e1;
+}
+
+.section-header-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.section-title-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.expand-icon {
+  color: #64748b;
+  font-size: 20px;
+}
+
+.section-content {
+  padding: 0 16px 16px 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.section-content p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 16px 0 0 0;
+}
+
+.agreement-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  padding: 16px 0;
+}
+
+.agreement-checkbox input {
+  display: none;
+}
+
+.checkmark {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  margin-top: 2px;
+}
+
+.agreement-checkbox.checked .checkmark {
+  background: #1a4f93;
+  border-color: #1a4f93;
+}
+
+.checkmark .material-icons {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.agreement-text {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.sign-button {
+  width: 100%;
+  padding: 16px 24px;
+  background: #1a4f93;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(26, 79, 147, 0.3);
+}
+
+.sign-button:hover:not(:disabled) {
+  background: #153d73;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(26, 79, 147, 0.4);
+}
+
+.sign-button:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.security-text {
+  text-align: center;
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+}
