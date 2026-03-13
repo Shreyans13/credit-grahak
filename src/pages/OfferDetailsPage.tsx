@@ -35,10 +35,15 @@ const OfferDetailsPage: React.FC<OfferDetailsPageProps> = ({
 
         <div className="lender-card">
           <div className="lender-info">
-            <h3 className="lender-name">Bajaj Finserv</h3>
-            <div className="verified-badge">
-              <span className="material-icons">verified</span>
-              <span>Verified Lender</span>
+            <div className="lender-logo">
+              <span className="material-icons">account_balance</span>
+            </div>
+            <div className="lender-details">
+              <h3 className="lender-name">DMI</h3>
+              <div className="verified-badge">
+                <span className="material-icons">verified</span>
+                <span>Verified Lender</span>
+              </div>
             </div>
           </div>
           <span className="selected-badge">SELECTED</span>

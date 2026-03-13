@@ -22,7 +22,7 @@ interface Lender {
 const lenders: Lender[] = [
   {
     id: '1',
-    name: 'Bajaj Finserv',
+    name: 'DMI',
     tagline: 'Instant Approval',
     taglineIcon: 'bolt',
     taglineColor: 'green',
@@ -33,7 +33,7 @@ const lenders: Lender[] = [
   },
   {
     id: '2',
-    name: 'HDFC Bank',
+    name: 'Bajaj Finserv',
     tagline: '12-24 Months Tenure',
     taglineIcon: 'schedule',
     taglineColor: 'slate',

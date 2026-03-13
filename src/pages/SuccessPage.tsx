@@ -22,9 +22,9 @@ const SuccessPage: React.FC<SuccessPageProps> = ({ onGoToDashboard, onDownloadRe
           <div className="success-icon">
             <span className="material-icons celebration">celebration</span>
           </div>
-          <h1 className="success-title">Loan Successfully Granted!</h1>
+          <h1 className="success-title">Payment Successful!</h1>
           <p className="success-description">
-            Your funds are being prepared and will be credited to your account shortly.
+            Funds will be transferred to merchant's account shortly.
           </p>
         </div>
 
