@@ -19,6 +19,14 @@ const WelcomePage: React.FC<WelcomePageProps> = ({ onGetStarted }) => {
       </header>
 
       <main className="welcome-content">
+        <div className="hero-image-container">
+          <img 
+            src="/images/welcome-hero.jpg" 
+            alt="Merchant EMI Services" 
+            className="hero-image"
+          />
+        </div>
+
         <div className="hero-section">
           <h1 className="hero-title">
             Empower your shop with Instant EMIs
