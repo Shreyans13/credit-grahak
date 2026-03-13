@@ -58,15 +58,6 @@ const LoanAgreementPage: React.FC<LoanAgreementPageProps> = ({ onBack, onContinu
       </header>
 
       <main className="agreement-content">
-        <div className="step-indicator">
-          <span className="step-label">Application Progress</span>
-          <span className="step-count">Step 9 of 11</span>
-        </div>
-
-        <div className="progress-bar">
-          <div className="progress-fill" style={{ width: '82%' }}></div>
-        </div>
-
         <div className="review-header">
           <h2 className="review-title">Review your agreement</h2>
           <p className="review-subtitle">

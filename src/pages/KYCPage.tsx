@@ -31,15 +31,6 @@ const KYCPage: React.FC<KYCPageProps> = ({ onBack, onContinue }) => {
       </header>
 
       <main className="kyc-content">
-        <div className="step-indicator">
-          <span className="step-label">Step 1: Basic Information</span>
-          <span className="step-count">1 of 3</span>
-        </div>
-
-        <div className="progress-bar">
-          <div className="progress-fill" style={{ width: '33%' }}></div>
-        </div>
-
         <div className="section-header">
           <h2 className="section-title">Personal Details</h2>
           <p className="section-subtitle">Please provide your details as per official documents.</p>

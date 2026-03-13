@@ -40,15 +40,6 @@ const SecurityVerificationPage: React.FC<SecurityVerificationPageProps> = ({
       </header>
 
       <main className="security-content">
-        <div className="step-indicator">
-          <span className="step-label">Verification Progress</span>
-          <span className="step-count">10 of 11</span>
-        </div>
-
-        <div className="progress-bar">
-          <div className="progress-fill" style={{ width: '91%' }}></div>
-        </div>
-
         <div className="shield-section">
           <div className="shield-icon">
             <span className="material-icons">shield_lock</span>

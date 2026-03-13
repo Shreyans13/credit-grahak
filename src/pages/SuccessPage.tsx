@@ -18,14 +18,6 @@ const SuccessPage: React.FC<SuccessPageProps> = ({ onGoToDashboard, onDownloadRe
       </header>
 
       <main className="success-content">
-        <div className="progress-section">
-          <span className="progress-label">Application Progress</span>
-          <div className="progress-bar">
-            <div className="progress-fill" style={{ width: '100%' }}></div>
-          </div>
-          <span className="progress-text">11 of 11</span>
-        </div>
-
         <div className="success-message">
           <div className="success-icon">
             <span className="material-icons celebration">celebration</span>
@@ -39,7 +31,7 @@ const SuccessPage: React.FC<SuccessPageProps> = ({ onGoToDashboard, onDownloadRe
         <div className="loan-details">
           <div className="detail-card">
             <span className="detail-label">Loan Amount</span>
-            <span className="detail-value">$25,000.00</span>
+            <span className="detail-value">₹50,000</span>
           </div>
           <div className="detail-card">
             <span className="detail-label">First EMI Date</span>

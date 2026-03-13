@@ -3,8 +3,7 @@ import WelcomePage from './pages/WelcomePage';
 import LoginPage from './pages/LoginPage';
 import KYCPage from './pages/KYCPage';
 import BureauConsentPage from './pages/BureauConsentPage';
-import ProductSelectionPage from './pages/ProductSelectionPage';
-import ProductListPage from './pages/ProductListPage';
+import ScanProductPage from './pages/ScanProductPage';
 import EligibleLendersPage from './pages/EligibleLendersPage';
 import OfferDetailsPage from './pages/OfferDetailsPage';
 import LoanAgreementPage from './pages/LoanAgreementPage';
@@ -17,8 +16,7 @@ export type Screen =
   | 'login'
   | 'kyc'
   | 'bureau-consent'
-  | 'product-selection'
-  | 'product-list'
+  | 'scan-product'
   | 'eligible-lenders'
   | 'offer-details'
   | 'loan-agreement'
@@ -30,8 +28,7 @@ const screenOrder: Screen[] = [
   'login',
   'kyc',
   'bureau-consent',
-  'product-selection',
-  'product-list',
+  'scan-product',
   'eligible-lenders',
   'offer-details',
   'loan-agreement',
@@ -87,11 +84,8 @@ function App() {
         {currentScreen === 'bureau-consent' && (
           <BureauConsentPage onBack={goBack} onContinue={goNext} />
         )}
-        {currentScreen === 'product-selection' && (
-          <ProductSelectionPage onBack={goBack} onContinue={goNext} />
-        )}
-        {currentScreen === 'product-list' && (
-          <ProductListPage onBack={goBack} onContinue={goNext} />
+        {currentScreen === 'scan-product' && (
+          <ScanProductPage onBack={goBack} onContinue={goNext} />
         )}
         {currentScreen === 'eligible-lenders' && (
           <EligibleLendersPage onBack={goBack} onContinue={goNext} />

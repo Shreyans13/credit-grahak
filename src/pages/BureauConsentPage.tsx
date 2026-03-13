@@ -33,7 +33,7 @@ const BureauConsentPage: React.FC<BureauConsentPageProps> = ({ onBack, onContinu
 
         <div className="features-grid">
           <div className="feature-item">
-            <span className="material-icons feature-icon">encrypted</span>
+            <span className="material-icons feature-icon">check_circle</span>
             <span className="feature-text">Bank-grade Security</span>
           </div>
           <div className="feature-item">

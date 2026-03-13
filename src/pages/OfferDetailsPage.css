@@ -123,11 +123,12 @@
   align-items: center;
   gap: 4px;
   font-size: 12px;
-  color: #16a34a;
+  color: #ffffff !important;
 }
 
 .verified-badge .material-icons {
   font-size: 16px;
+  color: #ffffff !important;
 }
 
 .selected-badge {

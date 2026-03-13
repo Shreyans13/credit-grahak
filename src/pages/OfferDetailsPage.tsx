@@ -25,15 +25,6 @@ const OfferDetailsPage: React.FC<OfferDetailsPageProps> = ({
       </header>
 
       <main className="offer-content">
-        <div className="step-indicator">
-          <span className="step-label">Final Review</span>
-          <span className="step-count">Step 3 of 3</span>
-        </div>
-
-        <div className="progress-bar">
-          <div className="progress-fill" style={{ width: '100%' }}></div>
-        </div>
-
         <div className="approval-banner">
           <span className="material-icons banner-icon">check_circle</span>
           <div className="banner-text">

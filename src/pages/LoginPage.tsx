@@ -35,9 +35,9 @@ const LoginPage: React.FC<LoginPageProps> = ({ onBack, onSendOTP }) => {
 
       <main className="login-content">
         <div className="login-intro">
-          <h1 className="login-title">Welcome to Merchant Pay</h1>
+          <h1 className="login-title">Welcome to Teakwood's Furniture</h1>
           <p className="login-subtitle">
-            Grow your business with India's most trusted payment platform.
+            Get instant EMI approval and buy your dream furniture today.
           </p>
         </div>
 

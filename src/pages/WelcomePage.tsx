@@ -9,67 +9,67 @@ const WelcomePage: React.FC<WelcomePageProps> = ({ onGetStarted }) => {
   return (
     <div className="welcome-page">
       <header className="welcome-header">
-        <div className="header-left">
-          <span className="material-icons store-icon">storefront</span>
-          <span className="header-title">Merchant Partner</span>
-        </div>
-        <button className="help-button" aria-label="Help">
-          <span className="material-icons">help_outline</span>
+        <button className="close-button" aria-label="Close">
+          <span className="material-icons">close</span>
         </button>
+        <h2 className="header-title">Teakwood's Furniture</h2>
+        <div className="header-spacer"></div>
       </header>
 
-      <main className="welcome-content">
-        <div className="hero-image-container">
-          <img 
-            src="/images/welcome-hero.jpg" 
-            alt="Merchant EMI Services" 
-            className="hero-image"
-          />
+      <div className="hero-image-section">
+        <div 
+          className="hero-image-bg"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop')`
+          }}
+        >
+          <div className="hero-gradient-fade"></div>
         </div>
+      </div>
 
-        <div className="hero-section">
+      <main className="welcome-content">
+        <div className="hero-text-section">
           <h1 className="hero-title">
-            Empower your shop with Instant EMIs
+            Buy your dream sofa with easy EMI plans
           </h1>
           <p className="hero-subtitle">
-            Help your customers buy laptops and mobiles with easy finance.
+            Fast, secure, and hassle-free financing in minutes.
           </p>
         </div>
 
         <div className="features-section">
           <div className="feature-card">
-            <div className="feature-icon fast">
-              <span className="material-icons">bolt</span>
+            <div className="feature-icon-wrapper">
+              <span className="material-icons">speed</span>
             </div>
-            <span className="feature-label">Fast Approval</span>
+            <div className="feature-text">
+              <p className="feature-title">Instant Approval</p>
+              <p className="feature-description">Get a decision in under 60 seconds.</p>
+            </div>
           </div>
 
           <div className="feature-card">
-            <div className="feature-icon secure">
+            <div className="feature-icon-wrapper">
               <span className="material-icons">verified_user</span>
             </div>
-            <span className="feature-label">Secure</span>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon growth">
-              <span className="material-icons">trending_up</span>
+            <div className="feature-text">
+              <p className="feature-title">Secure Payments</p>
+              <p className="feature-description">Bank-level encryption for your peace of mind.</p>
             </div>
-            <span className="feature-label">Grow Sales</span>
           </div>
         </div>
 
         <div className="action-section">
           <button className="get-started-button" onClick={onGetStarted}>
-            <span>Get Started</span>
-            <span className="material-icons">arrow_forward</span>
+            Get Started
           </button>
+          <p className="terms-text">
+            By continuing, you agree to our Terms of Service and Privacy Policy. Credit subject to status and eligibility.
+          </p>
         </div>
       </main>
 
-      <footer className="welcome-footer">
-        <p>Powered by India's leading fintech network</p>
-      </footer>
+      <div className="bottom-spacer"></div>
     </div>
   );
 };

@@ -9,39 +9,48 @@ interface EligibleLendersPageProps {
 interface Lender {
   id: string;
   name: string;
-  badge: string;
-  maxApproval: string;
-  tenure: string;
-  roi: string;
-  icon: string;
+  tagline: string;
+  taglineIcon: string;
+  taglineColor: 'green' | 'slate' | 'primary';
+  limitUpTo: string;
+  detailLabel: string;
+  detailValue: string;
+  logoUrl?: string;
+  icon?: string;
 }
 
 const lenders: Lender[] = [
   {
     id: '1',
     name: 'Bajaj Finserv',
-    badge: 'Trusted Partner',
-    maxApproval: '₹50,000',
-    tenure: '12 Months',
-    roi: '14% p.a.',
+    tagline: 'Instant Approval',
+    taglineIcon: 'bolt',
+    taglineColor: 'green',
+    limitUpTo: '₹75,000',
+    detailLabel: 'Interest Rate',
+    detailValue: '0% EMIs Available',
     icon: 'account_balance'
   },
   {
     id: '2',
-    name: 'HDFC FlexiPay',
-    badge: 'Insta-Approval',
-    maxApproval: '₹50,000',
-    tenure: '24 Months',
-    roi: '15.5% p.a.',
+    name: 'HDFC Bank',
+    tagline: '12-24 Months Tenure',
+    taglineIcon: 'schedule',
+    taglineColor: 'slate',
+    limitUpTo: '₹1,20,000',
+    detailLabel: 'Processing Fee',
+    detailValue: 'Flat ₹499',
     icon: 'account_balance_wallet'
   },
   {
     id: '3',
-    name: 'Axio',
-    badge: 'Zero Processing Fee',
-    maxApproval: '₹50,000',
-    tenure: '6 Months',
-    roi: '12% p.a.',
+    name: 'Axio (formerly Capital Float)',
+    tagline: 'No Paperwork',
+    taglineIcon: 'stars',
+    taglineColor: 'primary',
+    limitUpTo: '₹50,000',
+    detailLabel: 'Best For',
+    detailValue: 'Small Monthly EMIs',
     icon: 'payments'
   }
 ];
@@ -49,81 +58,106 @@ const lenders: Lender[] = [
 const EligibleLendersPage: React.FC<EligibleLendersPageProps> = ({ onBack, onContinue }) => {
   const [selectedLender, setSelectedLender] = useState<string>('1');
 
+  const getTaglineClass = (color: string) => {
+    switch (color) {
+      case 'green':
+        return 'tagline-green';
+      case 'primary':
+        return 'tagline-primary';
+      default:
+        return 'tagline-slate';
+    }
+  };
+
   return (
     <div className="lenders-page">
       <header className="lenders-header">
         <button className="back-button" onClick={onBack}>
           <span className="material-icons">arrow_back</span>
         </button>
-        <span className="header-title">Eligible Lenders</span>
+        <h2 className="header-title">Checkout</h2>
         <button className="help-button">
           <span className="material-icons">help_outline</span>
         </button>
       </header>
 
       <main className="lenders-content">
-        <div className="step-indicator">
-          <span className="step-label">Lender Selection</span>
-          <span className="step-count">Step 3 of 3</span>
-        </div>
-
-        <div className="progress-bar">
-          <div className="progress-fill" style={{ width: '100%' }}></div>
-        </div>
-
-        <div className="status-badge">
-          <span className="material-icons status-icon">check_circle</span>
-          <span>Finalizing your application</span>
-        </div>
-
-        <div className="success-banner">
-          <span className="material-icons banner-icon">check_circle</span>
-          <div className="banner-text">
-            <h3>Great news!</h3>
-            <p>You have unlocked these premium lenders based on your business profile.</p>
+        <div className="hero-section">
+          <div className="hero-background">
+            <div className="hero-gradient"></div>
+            <div className="hero-content">
+              <span className="verified-badge">
+                <span className="material-icons">verified</span>
+                <span className="verified-text">Verified Offers</span>
+              </span>
+              <h1 className="hero-title">Your New Sofa is Just a Step Away</h1>
+            </div>
           </div>
         </div>
 
-        <h2 className="section-title">Recommended for You</h2>
-        <p className="section-subtitle">Select a lender to proceed with the final agreement.</p>
+        <div className="success-card">
+          <div className="success-icon-wrapper">
+            <span className="material-icons">check_circle</span>
+          </div>
+          <div className="success-text">
+            <p className="success-title">Success!</p>
+            <p className="success-subtitle">Your credit profile matches our partners.</p>
+          </div>
+        </div>
+
+        <div className="headline-section">
+          <h3 className="headline-title">
+            Great news! You have unlocked these lenders for your Sofa
+          </h3>
+          <p className="headline-subtitle">Select your preferred financing partner to continue</p>
+        </div>
 
         <div className="lenders-list">
           {lenders.map((lender) => (
-            <button
+            <div
               key={lender.id}
               className={`lender-card ${selectedLender === lender.id ? 'selected' : ''}`}
               onClick={() => setSelectedLender(lender.id)}
             >
-              <div className="lender-header">
-                <div className="lender-icon">
-                  <span className="material-icons">{lender.icon}</span>
+              <div className="card-header">
+                <div className="lender-info-left">
+                  <div className="lender-logo">
+                    {lender.logoUrl ? (
+                      <img src={lender.logoUrl} alt={lender.name} />
+                    ) : (
+                      <span className="material-icons">{lender.icon}</span>
+                    )}
+                  </div>
+                  <div className="lender-details-text">
+                    <p className="lender-name">{lender.name}</p>
+                    <div className={`lender-tagline ${getTaglineClass(lender.taglineColor)}`}>
+                      <span className="material-icons">{lender.taglineIcon}</span>
+                      <span>{lender.tagline}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="lender-info">
-                  <h3 className="lender-name">{lender.name}</h3>
-                  <span className="lender-badge">{lender.badge}</span>
-                </div>
-              </div>
-
-              <div className="approval-info">
-                <span className="approval-label">Max Approval</span>
-                <span className="approval-value">{lender.maxApproval}</span>
-              </div>
-
-              <div className="lender-details">
-                <div className="detail-item">
-                  <span className="material-icons">schedule</span>
-                  <span>Tenure: {lender.tenure}</span>
-                </div>
-                <div className="detail-item">
-                  <span className="material-icons">percent</span>
-                  <span>ROI: {lender.roi}</span>
+                <div className="lender-limit">
+                  <p className="limit-label">Limit Up To</p>
+                  <p className="limit-value">{lender.limitUpTo}</p>
                 </div>
               </div>
 
-              <div className="select-button">
-                {selectedLender === lender.id ? 'Selected' : 'Select Plan'}
+              <div className="card-footer">
+                <div className="detail-info">
+                  <p className="detail-label">{lender.detailLabel}</p>
+                  <p className="detail-value">{lender.detailValue}</p>
+                </div>
+                <button 
+                  className={`select-btn ${selectedLender === lender.id ? 'selected' : ''}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedLender(lender.id);
+                  }}
+                >
+                  {selectedLender === lender.id ? 'Selected' : 'Select'}
+                </button>
               </div>
-            </button>
+            </div>
           ))}
         </div>
 
@@ -131,25 +165,6 @@ const EligibleLendersPage: React.FC<EligibleLendersPageProps> = ({ onBack, onCon
           Continue with Selected Plan
         </button>
       </main>
-
-      <nav className="bottom-nav">
-        <button className="nav-item active">
-          <span className="material-icons">home</span>
-          <span>Home</span>
-        </button>
-        <button className="nav-item">
-          <span className="material-icons">account_balance_wallet</span>
-          <span>Loans</span>
-        </button>
-        <button className="nav-item">
-          <span className="material-icons">sell</span>
-          <span>Offers</span>
-        </button>
-        <button className="nav-item">
-          <span className="material-icons">account_circle</span>
-          <span>Profile</span>
-        </button>
-      </nav>
     </div>
   );
 };
