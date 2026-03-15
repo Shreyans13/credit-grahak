@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './BureauConsentPage.css';
 
 interface BureauConsentPageProps {
@@ -7,6 +8,7 @@ interface BureauConsentPageProps {
 }
 
 const BureauConsentPage: React.FC<BureauConsentPageProps> = ({ onBack, onContinue }) => {
+  const { t } = useLanguage();
   const [consentGiven, setConsentGiven] = useState(false);
 
   return (
@@ -15,7 +17,7 @@ const BureauConsentPage: React.FC<BureauConsentPageProps> = ({ onBack, onContinu
         <button className="back-button" onClick={onBack}>
           <span className="material-icons">arrow_back</span>
         </button>
-        <span className="header-title">Verification</span>
+        <span className="header-title">{t.bureauConsent.title}</span>
         <div className="header-spacer"></div>
       </header>
 
@@ -24,21 +26,20 @@ const BureauConsentPage: React.FC<BureauConsentPageProps> = ({ onBack, onContinu
           <div className="shield-icon">
             <span className="material-icons">shield_lock</span>
           </div>
-          <h2 className="shield-title">Secure Your Profile</h2>
+          <h2 className="shield-title">{t.bureauConsent.shieldTitle}</h2>
           <p className="shield-description">
-            We need to check your credit history to unlock the best lenders for your customers. 
-            This helps us ensure the highest approval rates for your business.
+            {t.bureauConsent.shieldDescription}
           </p>
         </div>
 
         <div className="features-grid">
           <div className="feature-item">
             <span className="material-icons feature-icon">check_circle</span>
-            <span className="feature-text">Bank-grade Security</span>
+            <span className="feature-text">{t.bureauConsent.bankSecurity}</span>
           </div>
           <div className="feature-item">
             <span className="material-icons feature-icon">verified_user</span>
-            <span className="feature-text">RBI Regulated Partners</span>
+            <span className="feature-text">{t.bureauConsent.rbiRegulated}</span>
           </div>
         </div>
 
@@ -59,8 +60,7 @@ const BureauConsentPage: React.FC<BureauConsentPageProps> = ({ onBack, onContinu
               {consentGiven && <span className="material-icons">check</span>}
             </span>
             <span className="consent-text">
-              I provide my consent to fetch my credit bureau profile for business verification purposes. 
-              I understand this will not impact my personal credit score.
+              {t.bureauConsent.consentText}
             </span>
           </label>
         </div>
@@ -70,11 +70,11 @@ const BureauConsentPage: React.FC<BureauConsentPageProps> = ({ onBack, onContinu
           onClick={onContinue}
           disabled={!consentGiven}
         >
-          <span>Verify Profile</span>
+          <span>{t.bureauConsent.verifyProfile}</span>
           <span className="material-icons">arrow_forward</span>
         </button>
 
-        <p className="security-note">100% Secure & Confidential</p>
+        <p className="security-note">{t.bureauConsent.securityNote}</p>
       </main>
     </div>
   );

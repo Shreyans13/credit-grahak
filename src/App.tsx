@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import WelcomePage from './pages/WelcomePage';
 import LoginPage from './pages/LoginPage';
-import KYCPage from './pages/KYCPage';
+import VerifyIdentityPage from './pages/VerifyIdentityPage';
 import BureauConsentPage from './pages/BureauConsentPage';
 import ScanProductPage from './pages/ScanProductPage';
 import EligibleLendersPage from './pages/EligibleLendersPage';
@@ -9,12 +9,13 @@ import OfferDetailsPage from './pages/OfferDetailsPage';
 import LoanAgreementPage from './pages/LoanAgreementPage';
 import SecurityVerificationPage from './pages/SecurityVerificationPage';
 import SuccessPage from './pages/SuccessPage';
+import LanguageSelector from './components/LanguageSelector';
 import './App.css';
 
 export type Screen = 
   | 'welcome' 
   | 'login'
-  | 'kyc'
+  | 'verify-identity'
   | 'bureau-consent'
   | 'scan-product'
   | 'eligible-lenders'
@@ -26,7 +27,7 @@ export type Screen =
 const screenOrder: Screen[] = [
   'welcome',
   'login',
-  'kyc',
+  'verify-identity',
   'bureau-consent',
   'scan-product',
   'eligible-lenders',
@@ -72,14 +73,18 @@ function App() {
   return (
     <div className="app">
       <div className="mobile-container">
+        <LanguageSelector />
         {currentScreen === 'welcome' && (
           <WelcomePage onGetStarted={goNext} />
         )}
         {currentScreen === 'login' && (
           <LoginPage onBack={goBack} onSendOTP={goNext} />
         )}
-        {currentScreen === 'kyc' && (
-          <KYCPage onBack={goBack} onContinue={goNext} />
+        {currentScreen === 'verify-identity' && (
+          <VerifyIdentityPage 
+            onBack={goBack} 
+            onContinue={goNext} 
+          />
         )}
         {currentScreen === 'bureau-consent' && (
           <BureauConsentPage onBack={goBack} onContinue={goNext} />

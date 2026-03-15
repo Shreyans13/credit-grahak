@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './SecurityVerificationPage.css';
 
 interface SecurityVerificationPageProps {
@@ -10,6 +11,7 @@ const SecurityVerificationPage: React.FC<SecurityVerificationPageProps> = ({
   onBack, 
   onContinue 
 }) => {
+  const { t } = useLanguage();
   const [otp, setOtp] = useState('');
   const [timer, setTimer] = useState(45);
   const [agreed, setAgreed] = useState(false);
@@ -35,7 +37,7 @@ const SecurityVerificationPage: React.FC<SecurityVerificationPageProps> = ({
         <button className="back-button" onClick={onBack}>
           <span className="material-icons">arrow_back</span>
         </button>
-        <span className="header-title">Final Step</span>
+        <span className="header-title">{t?.securityVerification?.title ?? 'Final Step'}</span>
         <div className="header-spacer"></div>
       </header>
 
@@ -44,9 +46,9 @@ const SecurityVerificationPage: React.FC<SecurityVerificationPageProps> = ({
           <div className="shield-icon">
             <span className="material-icons">shield_lock</span>
           </div>
-          <h2 className="shield-title">Verify & Finalize</h2>
+          <h2 className="shield-title">{t?.securityVerification?.verifyTitle ?? 'Verify & Finalize'}</h2>
           <p className="shield-description">
-            Please enter the 6-digit verification code sent to your registered phone number •••• •••• 82
+            {t?.securityVerification?.description ?? 'Please enter the 6-digit verification code sent to your registered phone number •••• •••• 82'}
           </p>
         </div>
 
@@ -54,7 +56,7 @@ const SecurityVerificationPage: React.FC<SecurityVerificationPageProps> = ({
           <input
             type="text"
             className="otp-input"
-            placeholder="Enter 6-digit code"
+            placeholder={t?.securityVerification?.otpPlaceholder ?? 'Enter 6-digit code'}
             value={otp}
             onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
             maxLength={6}
@@ -64,10 +66,10 @@ const SecurityVerificationPage: React.FC<SecurityVerificationPageProps> = ({
         <p className="resend-text">
           Didn't receive the code? <br />
           {timer > 0 ? (
-            <span className="timer">Resend Code ({formatTime(timer)})</span>
+            <span className="timer">{t?.securityVerification?.resendCode ?? 'Resend Code'} ({formatTime(timer)})</span>
           ) : (
             <button className="resend-link" onClick={() => setTimer(45)}>
-              Resend Code
+              {t?.securityVerification?.resendCode ?? 'Resend Code'}
             </button>
           )}
         </p>
@@ -83,12 +85,12 @@ const SecurityVerificationPage: React.FC<SecurityVerificationPageProps> = ({
           </span>
           <span className="verify-text">
             <span className="material-icons check-icon">check_circle</span>
-            Verify & Finalize Agreement
+            {t?.securityVerification?.verifyFinalize ?? 'Verify & Finalize'}
           </span>
         </label>
 
         <p className="disclaimer-text">
-          By clicking verify, you agree to our Terms of Service and electronic signature disclosure.
+          {t?.securityVerification?.disclaimer ?? 'By clicking verify, you agree to our Terms of Service and electronic signature disclosure.'}
         </p>
 
         <button
@@ -96,7 +98,7 @@ const SecurityVerificationPage: React.FC<SecurityVerificationPageProps> = ({
           onClick={onContinue}
           disabled={otp.length < 6 || !agreed}
         >
-          Verify & Finalize
+          {t?.securityVerification?.verifyFinalize ?? 'Verify & Finalize'}
         </button>
       </main>
     </div>

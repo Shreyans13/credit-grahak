@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './EligibleLendersPage.css';
 
 interface EligibleLendersPageProps {
@@ -56,6 +57,7 @@ const lenders: Lender[] = [
 ];
 
 const EligibleLendersPage: React.FC<EligibleLendersPageProps> = ({ onBack, onContinue }) => {
+  const { t } = useLanguage();
   const [selectedLender, setSelectedLender] = useState<string>('1');
 
   const getTaglineClass = (color: string) => {
@@ -75,7 +77,7 @@ const EligibleLendersPage: React.FC<EligibleLendersPageProps> = ({ onBack, onCon
         <button className="back-button" onClick={onBack}>
           <span className="material-icons">arrow_back</span>
         </button>
-        <h2 className="header-title">Checkout</h2>
+        <h2 className="header-title">{t.eligibleLenders?.title}</h2>
         <button className="help-button">
           <span className="material-icons">help_outline</span>
         </button>
@@ -88,9 +90,9 @@ const EligibleLendersPage: React.FC<EligibleLendersPageProps> = ({ onBack, onCon
             <div className="hero-content">
               <span className="verified-badge">
                 <span className="material-icons">verified</span>
-                <span className="verified-text">Verified Offers</span>
+                <span className="verified-text">{t.eligibleLenders?.verifiedOffers}</span>
               </span>
-              <h1 className="hero-title">Your New Sofa is Just a Step Away</h1>
+              <h1 className="hero-title">{t.eligibleLenders?.heroTitle}</h1>
             </div>
           </div>
         </div>
@@ -100,51 +102,51 @@ const EligibleLendersPage: React.FC<EligibleLendersPageProps> = ({ onBack, onCon
             <span className="material-icons">check_circle</span>
           </div>
           <div className="success-text">
-            <p className="success-title">Success!</p>
-            <p className="success-subtitle">Your credit profile matches our partners.</p>
+            <p className="success-title">{t.eligibleLenders?.successTitle}</p>
+            <p className="success-subtitle">{t.eligibleLenders?.successSubtitle}</p>
           </div>
         </div>
 
         <div className="headline-section">
-          <h3 className="headline-title">
-            Great news! You have unlocked these lenders for your Sofa
-          </h3>
-          <p className="headline-subtitle">Select your preferred financing partner to continue</p>
+          <h3 className="headline-title">{t.eligibleLenders?.headlineTitle}</h3>
+          <p className="headline-subtitle">{t.eligibleLenders?.headlineSubtitle}</p>
         </div>
 
         <div className="lenders-list">
-          {lenders.map((lender) => (
+          {lenders.map((lender) => {
+            const detailLabelText = lender.detailLabel === 'Interest Rate'
+              ? t.eligibleLenders?.interestRate
+              : lender.detailLabel === 'Processing Fee'
+              ? t.eligibleLenders?.processingFee
+              : t.eligibleLenders?.bestFor;
+            return (
             <div
               key={lender.id}
               className={`lender-card ${selectedLender === lender.id ? 'selected' : ''}`}
               onClick={() => setSelectedLender(lender.id)}
             >
-              <div className="card-header">
-                <div className="lender-info-left">
-                  <div className="lender-logo">
-                    {lender.logoUrl ? (
-                      <img src={lender.logoUrl} alt={lender.name} />
-                    ) : (
-                      <span className="material-icons">{lender.icon}</span>
-                    )}
+              <div className="lender-card-header">
+                <div className="lender-left-section">
+                  <div className="lender-icon-box">
+                    <span className="material-icons">{lender.icon}</span>
                   </div>
-                  <div className="lender-details-text">
-                    <p className="lender-name">{lender.name}</p>
-                    <div className={`lender-tagline ${getTaglineClass(lender.taglineColor)}`}>
+                  <div className="lender-name-section">
+                    <p className="lender-name-text">{lender.name}</p>
+                    <div className={`lender-badge-text ${getTaglineClass(lender.taglineColor)}`}>
                       <span className="material-icons">{lender.taglineIcon}</span>
                       <span>{lender.tagline}</span>
                     </div>
                   </div>
                 </div>
-                <div className="lender-limit">
-                  <p className="limit-label">Limit Up To</p>
-                  <p className="limit-value">{lender.limitUpTo}</p>
+                <div className="lender-right-section">
+                  <p className="limit-text-label">{t.eligibleLenders?.limitUpTo}</p>
+                  <p className="limit-text-value">{lender.limitUpTo}</p>
                 </div>
               </div>
 
               <div className="card-footer">
                 <div className="detail-info">
-                  <p className="detail-label">{lender.detailLabel}</p>
+                  <p className="detail-label">{detailLabelText}</p>
                   <p className="detail-value">{lender.detailValue}</p>
                 </div>
                 <button 
@@ -154,15 +156,16 @@ const EligibleLendersPage: React.FC<EligibleLendersPageProps> = ({ onBack, onCon
                     setSelectedLender(lender.id);
                   }}
                 >
-                  {selectedLender === lender.id ? 'Selected' : 'Select'}
+                  {selectedLender === lender.id ? t.eligibleLenders?.selected : t.eligibleLenders?.select}
                 </button>
               </div>
             </div>
-          ))}
+          );
+          })}
         </div>
 
         <button className="continue-button" onClick={onContinue}>
-          Continue with Selected Plan
+          {t.eligibleLenders?.continueWithPlan}
         </button>
       </main>
     </div>

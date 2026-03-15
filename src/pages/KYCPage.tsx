@@ -1,18 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { ScannedIdentityData } from './VerifyIdentityPage';
 import './KYCPage.css';
 
 interface KYCPageProps {
   onBack: () => void;
   onContinue: () => void;
+  scannedData?: ScannedIdentityData | null;
 }
 
-const KYCPage: React.FC<KYCPageProps> = ({ onBack, onContinue }) => {
+const KYCPage: React.FC<KYCPageProps> = ({ onBack, onContinue, scannedData }) => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     fullName: '',
     panNumber: '',
     age: '',
     gender: ''
   });
+
+  useEffect(() => {
+    if (scannedData) {
+      setFormData({
+        fullName: scannedData.fullName || '',
+        panNumber: scannedData.panNumber || '',
+        age: scannedData.age || '',
+        gender: scannedData.gender || ''
+      });
+    }
+  }, [scannedData]);
 
   const handleChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -26,35 +41,42 @@ const KYCPage: React.FC<KYCPageProps> = ({ onBack, onContinue }) => {
         <button className="back-button" onClick={onBack}>
           <span className="material-icons">arrow_back</span>
         </button>
-        <span className="header-title">KYC Verification</span>
+        <span className="header-title">{t.kyc.title}</span>
         <div className="header-spacer"></div>
       </header>
 
       <main className="kyc-content">
         <div className="section-header">
-          <h2 className="section-title">Personal Details</h2>
-          <p className="section-subtitle">Please provide your details as per official documents.</p>
+          <h2 className="section-title">{t.kyc.personalDetails}</h2>
+          <p className="section-subtitle">{t.kyc.personalDetailsSubtitle}</p>
         </div>
+
+        {scannedData && (
+          <div className="auto-filled-banner">
+            <span className="material-icons auto-fill-icon">check_circle</span>
+            <span className="auto-fill-text">{t.verifyIdentity?.autoFilled || 'Auto-filled from scanned document'}</span>
+          </div>
+        )}
 
         <div className="form-section">
           <div className="form-group">
-            <label className="form-label">Full Name (as per PAN)</label>
+            <label className="form-label">{t.kyc.fullName}</label>
             <input
               type="text"
               className="form-input"
-              placeholder="Enter your full name"
+              placeholder={t.kyc.fullNamePlaceholder}
               value={formData.fullName}
               onChange={(e) => handleChange('fullName', e.target.value)}
             />
           </div>
 
           <div className="form-group">
-            <label className="form-label">PAN Number</label>
+            <label className="form-label">{t.kyc.panNumber}</label>
             <div className="input-with-icon">
               <input
                 type="text"
                 className="form-input"
-                placeholder="ABCDE1234F"
+                placeholder={t.kyc.panPlaceholder}
                 value={formData.panNumber}
                 onChange={(e) => handleChange('panNumber', e.target.value.toUpperCase())}
                 maxLength={10}
@@ -64,18 +86,18 @@ const KYCPage: React.FC<KYCPageProps> = ({ onBack, onContinue }) => {
           </div>
 
           <div className="form-group">
-            <label className="form-label">Age</label>
+            <label className="form-label">{t.kyc.age}</label>
             <input
               type="number"
               className="form-input"
-              placeholder="Enter your age"
+              placeholder={t.kyc.agePlaceholder}
               value={formData.age}
               onChange={(e) => handleChange('age', e.target.value)}
             />
           </div>
 
           <div className="form-group">
-            <label className="form-label">Gender</label>
+            <label className="form-label">{t.kyc.gender}</label>
             <div className="gender-options">
               <label className={`gender-option ${formData.gender === 'male' ? 'selected' : ''}`}>
                 <input
@@ -86,7 +108,7 @@ const KYCPage: React.FC<KYCPageProps> = ({ onBack, onContinue }) => {
                   onChange={(e) => handleChange('gender', e.target.value)}
                 />
                 <span className="gender-icon">♂</span>
-                <span className="gender-label">Male</span>
+                <span className="gender-label">{t.kyc.male}</span>
               </label>
 
               <label className={`gender-option ${formData.gender === 'female' ? 'selected' : ''}`}>
@@ -98,7 +120,7 @@ const KYCPage: React.FC<KYCPageProps> = ({ onBack, onContinue }) => {
                   onChange={(e) => handleChange('gender', e.target.value)}
                 />
                 <span className="gender-icon">♀</span>
-                <span className="gender-label">Female</span>
+                <span className="gender-label">{t.kyc.female}</span>
               </label>
 
               <label className={`gender-option ${formData.gender === 'other' ? 'selected' : ''}`}>
@@ -110,7 +132,7 @@ const KYCPage: React.FC<KYCPageProps> = ({ onBack, onContinue }) => {
                   onChange={(e) => handleChange('gender', e.target.value)}
                 />
                 <span className="gender-icon">⚧</span>
-                <span className="gender-label">Other</span>
+                <span className="gender-label">{t.kyc.other}</span>
               </label>
             </div>
           </div>
@@ -119,7 +141,7 @@ const KYCPage: React.FC<KYCPageProps> = ({ onBack, onContinue }) => {
         <div className="info-box">
           <span className="material-icons info-icon">info</span>
           <p className="info-text">
-            We use this data only for identity verification through government-approved channels. Your data is encrypted and secure.
+            {t.kyc.infoText}
           </p>
         </div>
 
@@ -128,7 +150,7 @@ const KYCPage: React.FC<KYCPageProps> = ({ onBack, onContinue }) => {
           onClick={onContinue}
           disabled={!isFormValid}
         >
-          <span>Save & Continue</span>
+          <span>{t.kyc.saveContinue}</span>
           <span className="material-icons">arrow_forward</span>
         </button>
       </main>

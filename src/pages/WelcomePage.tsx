@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './WelcomePage.css';
 
 interface WelcomePageProps {
@@ -6,13 +7,15 @@ interface WelcomePageProps {
 }
 
 const WelcomePage: React.FC<WelcomePageProps> = ({ onGetStarted }) => {
+  const { t } = useLanguage();
+
   return (
     <div className="welcome-page">
       <header className="welcome-header">
         <button className="close-button" aria-label="Close">
           <span className="material-icons">close</span>
         </button>
-        <h2 className="header-title">Teakwood's Furniture</h2>
+        <h2 className="header-title">{t.welcome.storeName}</h2>
         <div className="header-spacer"></div>
       </header>
 
@@ -30,10 +33,10 @@ const WelcomePage: React.FC<WelcomePageProps> = ({ onGetStarted }) => {
       <main className="welcome-content">
         <div className="hero-text-section">
           <h1 className="hero-title">
-            Buy your dream sofa with easy EMI plans
+            {t.welcome.heroTitle}
           </h1>
           <p className="hero-subtitle">
-            Fast, secure, and hassle-free financing in minutes.
+            {t.welcome.heroSubtitle}
           </p>
         </div>
 
@@ -43,8 +46,8 @@ const WelcomePage: React.FC<WelcomePageProps> = ({ onGetStarted }) => {
               <span className="material-icons">speed</span>
             </div>
             <div className="feature-text">
-              <p className="feature-title">Instant Approval</p>
-              <p className="feature-description">Get a decision in under 60 seconds.</p>
+              <p className="feature-title">{t.welcome.instantApproval}</p>
+              <p className="feature-description">{t.welcome.instantApprovalDesc}</p>
             </div>
           </div>
 
@@ -53,18 +56,18 @@ const WelcomePage: React.FC<WelcomePageProps> = ({ onGetStarted }) => {
               <span className="material-icons">verified_user</span>
             </div>
             <div className="feature-text">
-              <p className="feature-title">Secure Payments</p>
-              <p className="feature-description">Bank-level encryption for your peace of mind.</p>
+              <p className="feature-title">{t.welcome.securePayments}</p>
+              <p className="feature-description">{t.welcome.securePaymentsDesc}</p>
             </div>
           </div>
         </div>
 
         <div className="action-section">
           <button className="get-started-button" onClick={onGetStarted}>
-            Get Started
+            {t.welcome.getStarted}
           </button>
           <p className="terms-text">
-            By continuing, you agree to our Terms of Service and Privacy Policy. Credit subject to status and eligibility.
+            {t.welcome.termsText}
           </p>
         </div>
       </main>

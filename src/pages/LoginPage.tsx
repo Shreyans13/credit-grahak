@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './LoginPage.css';
 
 interface LoginPageProps {
@@ -7,6 +8,7 @@ interface LoginPageProps {
 }
 
 const LoginPage: React.FC<LoginPageProps> = ({ onBack, onSendOTP }) => {
+  const { t } = useLanguage();
   const [phoneNumber, setPhoneNumber] = useState('');
   const [otpSent, setOtpSent] = useState(false);
   const [otp, setOtp] = useState('');
@@ -29,27 +31,27 @@ const LoginPage: React.FC<LoginPageProps> = ({ onBack, onSendOTP }) => {
         <button className="back-button" onClick={onBack}>
           <span className="material-icons">arrow_back</span>
         </button>
-        <span className="header-title">Login</span>
+        <span className="header-title">{t.login.title}</span>
         <div className="header-spacer"></div>
       </header>
 
       <main className="login-content">
         <div className="login-intro">
-          <h1 className="login-title">Welcome to Teakwood's Furniture</h1>
+          <h1 className="login-title">{t.login.welcomeText}</h1>
           <p className="login-subtitle">
-            Get instant EMI approval and buy your dream furniture today.
+            {t.login.subtitle}
           </p>
         </div>
 
         {!otpSent ? (
           <div className="phone-section">
-            <label className="input-label">Phone Number</label>
+            <label className="input-label">{t.login.phoneLabel}</label>
             <div className="phone-input-container">
               <span className="country-code">+91</span>
               <input
                 type="tel"
                 className="phone-input"
-                placeholder="Enter your phone number"
+                placeholder={t.login.phonePlaceholder}
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value.replace(/\D/g, ''))}
                 maxLength={10}
@@ -62,7 +64,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onBack, onSendOTP }) => {
               onClick={handleSendOTP}
               disabled={phoneNumber.length < 10}
             >
-              <span>Send OTP</span>
+              <span>{t.login.sendOtp}</span>
               <span className="material-icons">arrow_forward</span>
             </button>
 
@@ -72,16 +74,16 @@ const LoginPage: React.FC<LoginPageProps> = ({ onBack, onSendOTP }) => {
           </div>
         ) : (
           <div className="otp-section">
-            <h2 className="otp-title">Verify Phone</h2>
+            <h2 className="otp-title">{t.login.verifyTitle}</h2>
             <p className="otp-subtitle">
-              Enter the 6-digit code sent to +91 {phoneNumber}
+              {t.login.otpSubtitle.replace('{phone}', phoneNumber)}
             </p>
 
             <div className="otp-input-container">
               <input
                 type="text"
                 className="otp-input"
-                placeholder="Enter OTP"
+                placeholder={t.login.otpPlaceholder}
                 value={otp}
                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
                 maxLength={6}
@@ -89,7 +91,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onBack, onSendOTP }) => {
             </div>
 
             <p className="resend-text">
-              Didn't receive the OTP? <button className="resend-link">Resend OTP</button>
+              Didn't receive the OTP? <button className="resend-link">{t.login.resendOtp}</button>
             </p>
 
             <button
@@ -97,7 +99,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onBack, onSendOTP }) => {
               onClick={handleVerifyOTP}
               disabled={otp.length < 6}
             >
-              Verify & Login
+              {t.login.verifyLogin}
             </button>
           </div>
         )}
