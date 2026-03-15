@@ -1,0 +1,400 @@
+.product-page {
+  min-height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header-left .language-selector {
+  position: static;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+
+.header-left .language-icon {
+  color: #3d1bac;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button:hover {
+  background: #f0f0f0;
+}
+
+.icon-button.speaking {
+  background: #3d1bac;
+}
+
+.icon-button.speaking .material-icons {
+  color: white;
+}
+
+.icon-button .material-icons {
+  color: #333;
+  font-size: 24px;
+}
+
+.store-info {
+  padding: 8px 16px 16px;
+  background: #ffffff;
+}
+
+.store-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.store-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  background: #f3f0ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.store-icon-wrapper .material-icons {
+  color: #3d1bac;
+  font-size: 24px;
+}
+
+.store-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.store-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.store-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.verified-icon {
+  color: #22c55e;
+  font-size: 20px;
+}
+
+.store-subtitle {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.product-image-section {
+  position: relative;
+  margin: 0 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-bg {
+  width: 100%;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.emi-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #3d1bac;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(61, 27, 172, 0.3);
+}
+
+.product-info-section {
+  padding: 20px 16px 16px;
+  background: #ffffff;
+}
+
+.product-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.current-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: #3d1bac;
+}
+
+.original-price {
+  font-size: 18px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.subsidy-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.2);
+}
+
+.celebration-icon {
+  font-size: 22px;
+  color: #fcd34d;
+}
+
+.subsidy-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.price-guarantee-section {
+  padding: 0 16px 16px;
+  background: #ffffff;
+}
+
+.guarantee-badge-large {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f0fdf4;
+  color: #166534;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.guarantee-badge-large .material-icons {
+  color: #22c55e;
+  font-size: 22px;
+}
+
+.price-comparison {
+  padding: 20px 16px;
+  background: #f8f8f8;
+  margin: 0 16px;
+  border-radius: 16px;
+}
+
+.comparison-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 4px 0;
+}
+
+.comparison-subtitle {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 16px 0;
+}
+
+.comparison-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comparison-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 12px;
+  border: 1.5px solid #e5e5e5;
+  transition: all 0.2s;
+}
+
+.comparison-item:hover {
+  border-color: #d0d0d0;
+}
+
+.comparison-item.best {
+  background: #3d1bac;
+  color: white;
+  border-color: #3d1bac;
+  box-shadow: 0 4px 12px rgba(61, 27, 172, 0.3);
+}
+
+.comparison-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.platform-logo {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.platform-logo.amazon {
+  color: #ff9900;
+}
+
+.platform-logo.flipkart {
+  color: #2874f0;
+}
+
+.platform-logo.smartscan {
+  color: #3d1bac;
+}
+
+.comparison-item.best .platform-logo.smartscan {
+  color: white;
+}
+
+.price-bar-container {
+  width: 100%;
+  height: 6px;
+  background: #e5e5e5;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.price-bar {
+  height: 100%;
+  background: #ff6b6b;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.price-bar.best-bar {
+  background: #22c55e;
+}
+
+.comparison-item .price {
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 12px;
+}
+
+.trust-badges {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 16px;
+  background: #ffffff;
+  margin-top: 4px;
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.trust-item .material-icons {
+  color: #3d1bac;
+  font-size: 28px;
+}
+
+.trust-item span:last-child {
+  font-size: 12px;
+  color: #555;
+  font-weight: 500;
+  line-height: 1.3;
+  max-width: 80px;
+}
+
+.action-section {
+  padding: 16px;
+  background: #ffffff;
+  margin-top: auto;
+}
+
+.continue-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #3d1bac;
+  color: white;
+  border: none;
+  padding: 18px 24px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(61, 27, 172, 0.3);
+}
+
+.continue-button:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(61, 27, 172, 0.4);
+}
+
+.continue-button:active {
+  transform: translateY(0);
+}
+
+.continue-button .material-icons {
+  font-size: 20px;
+}

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import LanguageSelector from '../components/LanguageSelector';
 import './LoginPage.css';
 
 interface LoginPageProps {
   onBack: () => void;
-  onSendOTP: () => void;
+  onContinue: () => void;
 }
 
-const LoginPage: React.FC<LoginPageProps> = ({ onBack, onSendOTP }) => {
+const LoginPage: React.FC<LoginPageProps> = ({ onBack, onContinue }) => {
   const { t } = useLanguage();
   const [phoneNumber, setPhoneNumber] = useState('');
   const [otpSent, setOtpSent] = useState(false);
@@ -21,7 +22,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onBack, onSendOTP }) => {
 
   const handleVerifyOTP = () => {
     if (otp.length === 6) {
-      onSendOTP();
+      onContinue();
     }
   };
 
@@ -32,7 +33,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onBack, onSendOTP }) => {
           <span className="material-icons">arrow_back</span>
         </button>
         <span className="header-title">{t.login.title}</span>
-        <div className="header-spacer"></div>
+        <LanguageSelector />
       </header>
 
       <main className="login-content">

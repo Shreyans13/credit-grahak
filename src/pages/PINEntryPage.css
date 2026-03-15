@@ -1,0 +1,239 @@
+.pin-entry-page {
+  min-height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.pin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button:hover {
+  background: #f0f0f0;
+}
+
+.back-button .material-icons {
+  color: #333;
+  font-size: 24px;
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.header-spacer {
+  width: 40px;
+}
+
+.pin-content {
+  flex: 1;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.amount-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.amount-label {
+  font-size: 12px;
+  color: #666;
+}
+
+.amount-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.bank-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f3f0ff;
+  padding: 10px 16px;
+  border-radius: 20px;
+  margin-bottom: 32px;
+}
+
+.bank-icon {
+  color: #3d1bac;
+  font-size: 20px;
+}
+
+.bank-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #3d1bac;
+}
+
+.pin-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.pin-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.pin-subtitle {
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+  margin: 0;
+  max-width: 280px;
+}
+
+.pin-dots {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.pin-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-dot.filled {
+  border-color: #3d1bac;
+  background: #3d1bac;
+}
+
+.dot-inner {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.keypad {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.keypad-row {
+  display: flex;
+  gap: 12px;
+}
+
+.key {
+  width: 72px;
+  height: 56px;
+  border-radius: 12px;
+  background: #f5f5f5;
+  border: none;
+  font-size: 24px;
+  font-weight: 500;
+  color: #1a1a1a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.key:hover {
+  background: #e5e5e5;
+}
+
+.key:active {
+  background: #d5d5d5;
+}
+
+.key.empty {
+  background: transparent;
+  cursor: default;
+}
+
+.key.backspace {
+  background: transparent;
+}
+
+.key.backspace .material-icons {
+  font-size: 24px;
+  color: #666;
+}
+
+.pay-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #3d1bac;
+  color: white;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background 0.2s;
+}
+
+.pay-button:hover {
+  background: #4f46e5;
+}
+
+.pay-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.pay-button .material-icons {
+  font-size: 18px;
+}
+
+.security-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #666;
+}
+
+.security-badge .material-icons {
+  color: #22c55e;
+  font-size: 16px;
+}

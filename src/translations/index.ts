@@ -1,17 +1,26 @@
 export type Language = 'hi' | 'en';
 
 export interface Translations {
-  // Welcome Page
-  welcome: {
+  // Product Page
+  product: {
     storeName: string;
-    heroTitle: string;
-    heroSubtitle: string;
-    instantApproval: string;
-    instantApprovalDesc: string;
-    securePayments: string;
-    securePaymentsDesc: string;
-    getStarted: string;
-    termsText: string;
+    verifiedDealer: string;
+    zeroEmi: string;
+    productName: string;
+    currentPrice: string;
+    originalPrice: string;
+    subsidyText: string;
+    priceGuarantee: string;
+    priceComparison: string;
+    bestDeal: string;
+    amazonPrice: string;
+    flipkartPrice: string;
+    hereLabel: string;
+    ourPrice: string;
+    securePayment: string;
+    insuredDelivery: string;
+    easyReturns: string;
+    viewPaymentOptions: string;
   };
   // Login Page
   login: {
@@ -26,6 +35,37 @@ export interface Translations {
     otpPlaceholder: string;
     resendOtp: string;
     verifyLogin: string;
+  };
+  // ID Scan Page
+  idScan: {
+    title: string;
+    scanningTitle: string;
+    instruction: string;
+    placeHere: string;
+    goodLighting: string;
+    keepStraight: string;
+    notBlurry: string;
+    uploadGallery: string;
+    verifyingIdentity: string;
+  };
+  // Details Confirmation Page
+  detailsConfirmation: {
+    title: string;
+    extractedInfo: string;
+    voiceAssistant: string;
+    scanSuccess: string;
+    detailsFilled: string;
+    verifiedInfo: string;
+    name: string;
+    dob: string;
+    address: string;
+    aadhar: string;
+    verified: string;
+    changeInfo: string;
+    scan: string;
+    check: string;
+    complete: string;
+    yesCorrect: string;
   };
   // Verify Identity Page
   verifyIdentity: {
@@ -159,6 +199,66 @@ export interface Translations {
     goToDashboard: string;
     downloadReceipt: string;
   };
+  // EMI Selection Page
+  emiSelection: {
+    title: string;
+    trustedLender: string;
+    verified: string;
+    offerText: string;
+    approvalConfirmed: string;
+    listen: string;
+    bestPlan: string;
+    recommended: string;
+    month: string;
+    months: string;
+    zeroInterest: string;
+    interest: string;
+    extraDiscount: string;
+    securityText: string;
+    home: string;
+    offers: string;
+    loan: string;
+    profile: string;
+  };
+  // Payment Summary Page
+  paymentSummary: {
+    title: string;
+    schedule: string;
+    now: string;
+    immediate: string;
+    nextMonth: string;
+    emiStart: string;
+    productSummary: string;
+    productName: string;
+    viewDetails: string;
+    priceDetails: string;
+    itemPrice: string;
+    lenderDiscount: string;
+    totalPayable: string;
+    securedBy: string;
+  };
+  // PIN Entry Page
+  pinEntry: {
+    title: string;
+    totalAmount: string;
+    enterOtp: string;
+    otpSubtitle: string;
+    signAndPay: string;
+    securePayment: string;
+  };
+  // Payment Success Page
+  paymentSuccess: {
+    title: string;
+    paymentSuccess: string;
+    paidTo: string;
+    congratulations: string;
+    orderId: string;
+    date: string;
+    paymentMethod: string;
+    transactionId: string;
+    viewOrderDetails: string;
+    goHome: string;
+  };
   // Common
   common: {
     back: string;
@@ -175,16 +275,25 @@ export interface Translations {
 
 const translations: Record<Language, Translations> = {
   hi: {
-    welcome: {
-      storeName: "टीकवुड फर्नीचर",
-      heroTitle: "आसान EMI योजनाओं के साथ अपने सपनों का सोफा खरीदें",
-      heroSubtitle: "मिनटों में तेज़, सुरक्षित और परेशानी-मुक्त फाइनेंसिंग।",
-      instantApproval: "तत्काल अनुमोदन",
-      instantApprovalDesc: "60 सेकंड के भीतर निर्णय प्राप्त करें।",
-      securePayments: "सुरक्षित भुगतान",
-      securePaymentsDesc: "आपकी शांति के लिए बैंक-स्तरीय एन्क्रिप्शन।",
-      getStarted: "शुरू करें",
-      termsText: "जारी रखकर, आप हमारी सेवा की शर्तों और गोपनीयता नीति से सहमत होते हैं। स्थिति और पात्रता के अधीन क्रेडिट।",
+    product: {
+      storeName: "राहुल फर्नीचर",
+      verifiedDealer: "Verified Nilkamal Dealer, Hubli",
+      zeroEmi: "0% अतिरिक्त लागत ईएमआई",
+      productName: "अल्फा क्वीन साइज टीक बेड",
+      currentPrice: "₹20,000",
+      originalPrice: "₹23,500",
+      subsidyText: "ब्रांड सबवेंशन लागू: आप ₹3,500 बचाते हैं!",
+      priceGuarantee: "भारत की सबसे कम कीमत की गारंटी",
+      priceComparison: "कीमत की तुलना",
+      bestDeal: "सबसे अच्छी डील सुरक्षित!",
+      amazonPrice: "₹22,800",
+      flipkartPrice: "₹22,500",
+      hereLabel: "यहाँ (स्मार्ट स्कैन)",
+      ourPrice: "₹20,000",
+      securePayment: "सुरक्षित भुगतान",
+      insuredDelivery: "बीमित डिलीवरी",
+      easyReturns: "आसान रिटर्न",
+      viewPaymentOptions: "भुगतान विकल्प देखें (अगला)",
     },
     login: {
       title: "लॉगिन",
@@ -321,6 +430,91 @@ const translations: Record<Language, Translations> = {
       firstEmiDate: "पहली EMI तिथि",
       goToDashboard: "डैशबोर्ड पर जाएं",
       downloadReceipt: "रसीद डाउनलोड करें",
+    },
+    idScan: {
+      title: "पहचान स्कैन करें",
+      scanningTitle: "अपनी पहचान कन्फर्म करें",
+      instruction: "अपने ID कार्ड की साफ़ फोटो खींचें ताकि डिटेल्स अपने आप भर जाएं।",
+      placeHere: "Place ID card here",
+      goodLighting: "साफ़ रोशनी में रखें",
+      keepStraight: "कार्ड को सीधा रखें",
+      notBlurry: "फोटो धुंधली न हो",
+      uploadGallery: "गैलरी से अपलोड करें",
+      verifyingIdentity: "पहचान वेरीफाई हो रही है...",
+    },
+    detailsConfirmation: {
+      title: "अपनी जानकारी चेक करें",
+      extractedInfo: "हमने आपकी आईडी से ये जानकारी ली है। क्या यह सही है?",
+      voiceAssistant: "वॉयस असिस्टेंट",
+      scanSuccess: "आईडी स्कैन सफल!",
+      detailsFilled: "आपकी जानकारी सफलतापूर्वक भर दी गई है",
+      verifiedInfo: "सत्यापित जानकारी",
+      name: "नाम",
+      dob: "जन्म तिथि",
+      address: "पता",
+      aadhar: "आधार नंबर",
+      verified: "Verified",
+      changeInfo: "जानकारी बदलें",
+      scan: "स्कैन",
+      check: "चेक",
+      complete: "समाप्त",
+      yesCorrect: "हाँ, यह सही है (आगे बढ़ें)",
+    },
+    emiSelection: {
+      title: "अपना मंथली पेमेंट चुनें",
+      trustedLender: "आपका भरोसेमंद लेंडर",
+      verified: "Verified",
+      offerText: "₹20,000 बेड के लिए हमारे बेस्ट ऑफर्स देखें।",
+      approvalConfirmed: "आपका अप्रूवल कन्फर्म है। सबसे आसान ऑप्शन चुनें।",
+      listen: "सुनें",
+      bestPlan: "आपके लिए बेस्ट ईएमआई प्लान",
+      recommended: "अनुशंसित",
+      month: "महीने",
+      months: "महीने",
+      zeroInterest: "0% ब्याज (EMI)",
+      interest: "ब्याज",
+      extraDiscount: "एक्स्ट्रा डिस्काउंट",
+      securityText: "DMI Finance के साथ आपकी ईएमआई पूरी तरह सुरक्षित है। कोई छुपा हुआ शुल्क नहीं।",
+      home: "होम",
+      offers: "ऑफ़र",
+      loan: "लोन",
+      profile: "प्रोफ़ाइल",
+    },
+    paymentSummary: {
+      title: "भुगतान सारांश",
+      schedule: "भुगतान अनुसूची",
+      now: "अभी",
+      immediate: "तुरंत भुगतान",
+      nextMonth: "अगले महीने",
+      emiStart: "EMI शुरू होगी",
+      productSummary: "प्रोडक्ट सारांश",
+      productName: "Alpha Bed",
+      viewDetails: "विवरण देखें",
+      priceDetails: "कीमत का विवरण",
+      itemPrice: "आइटम की कीमत",
+      lenderDiscount: "लेंडर डिस्काउंट",
+      totalPayable: "कुल देय राशि",
+      securedBy: "फिनटेक द्वारा सुरक्षित एन्क्रिप्शन",
+    },
+    pinEntry: {
+      title: "भुगतान",
+      totalAmount: "कुल राशि",
+      enterOtp: "OTP दर्ज करें",
+      otpSubtitle: "अपने पंजीकृत मोबाइल नंबर पर भेजा गया 6-अंकीय OTP",
+      signAndPay: "साइन और ₹18,800 का भुगतान करें",
+      securePayment: "100% सुरक्षित भुगतान",
+    },
+    paymentSuccess: {
+      title: "भुगतान",
+      paymentSuccess: "भुगतान सफल रहा!",
+      paidTo: "{merchant} को ₹{amount} का भुगतान हो गया है",
+      congratulations: "बधाई हो! आपका ऑर्डर कन्फर्म हो गया है।",
+      orderId: "ऑर्डर आईडी",
+      date: "तारीख",
+      paymentMethod: "भुगतान का तरीका",
+      transactionId: "ट्रांजैक्शन आईडी",
+      viewOrderDetails: "ऑर्डर विवरण देखें",
+      goHome: "होम पर जाएं",
     },
     common: {
       back: "वापस",
@@ -481,6 +675,111 @@ const translations: Record<Language, Translations> = {
       firstEmiDate: "First EMI Date",
       goToDashboard: "Go to Dashboard",
       downloadReceipt: "Download Receipt",
+    },
+    product: {
+      storeName: "Rahul Furniture",
+      verifiedDealer: "Verified Nilkamal Dealer, Hubli",
+      zeroEmi: "0% Additional Cost EMI",
+      productName: "Alpha Queen Size Teak Bed",
+      currentPrice: "₹20,000",
+      originalPrice: "₹23,500",
+      subsidyText: "Brand Subsidy Applied: You save ₹3,500!",
+      priceGuarantee: "India's Lowest Price Guarantee",
+      priceComparison: "Price Comparison",
+      bestDeal: "Secure the Best Deal!",
+      amazonPrice: "₹22,800",
+      flipkartPrice: "₹22,500",
+      hereLabel: "Here (Smart Scan)",
+      ourPrice: "₹20,000",
+      securePayment: "Secure Payment",
+      insuredDelivery: "Insured Delivery",
+      easyReturns: "Easy Returns",
+      viewPaymentOptions: "View Payment Options (Next)",
+    },
+    idScan: {
+      title: "Scan ID",
+      scanningTitle: "Verify Identity",
+      instruction: "Take a clear photo of your ID card so details are auto-filled.",
+      placeHere: "Place ID card here",
+      goodLighting: "Keep in good light",
+      keepStraight: "Keep card straight",
+      notBlurry: "Photo should not be blurry",
+      uploadGallery: "Upload from Gallery",
+      verifyingIdentity: "Verifying identity...",
+    },
+    detailsConfirmation: {
+      title: "Check Your Details",
+      extractedInfo: "We have extracted this information from your ID. Is this correct?",
+      voiceAssistant: "Voice Assistant",
+      scanSuccess: "ID Scan Successful!",
+      detailsFilled: "Your details have been successfully filled",
+      verifiedInfo: "Verified Information",
+      name: "Name",
+      dob: "Date of Birth",
+      address: "Address",
+      aadhar: "Aadhar Number",
+      verified: "Verified",
+      changeInfo: "Change Information",
+      scan: "Scan",
+      check: "Check",
+      complete: "Complete",
+      yesCorrect: "Yes, this is correct (Continue)",
+    },
+    emiSelection: {
+      title: "Choose Your Monthly Payment",
+      trustedLender: "Your Trusted Lender",
+      verified: "Verified",
+      offerText: "See our best offers for ₹20,000 bed.",
+      approvalConfirmed: "Your approval is confirmed. Choose the easiest option.",
+      listen: "Listen",
+      bestPlan: "Best EMI Plan for You",
+      recommended: "Recommended",
+      month: "month",
+      months: "months",
+      zeroInterest: "0% Interest (EMI)",
+      interest: "Interest",
+      extraDiscount: "Extra Discount",
+      securityText: "Your EMI is fully secured with DMI Finance. No hidden charges.",
+      home: "Home",
+      offers: "Offers",
+      loan: "Loan",
+      profile: "Profile",
+    },
+    paymentSummary: {
+      title: "Payment Summary",
+      schedule: "Payment Schedule",
+      now: "Now: ₹0",
+      immediate: "Immediate Payment",
+      nextMonth: "Next Month",
+      emiStart: "EMI will start",
+      productSummary: "Product Summary",
+      productName: "Alpha Bed",
+      viewDetails: "View Details",
+      priceDetails: "Price Details",
+      itemPrice: "Item Price",
+      lenderDiscount: "Lender Discount",
+      totalPayable: "Total Payable Amount",
+      securedBy: "Secured encryption by Fintech",
+    },
+    pinEntry: {
+      title: "Payment",
+      totalAmount: "Total Amount",
+      enterOtp: "Enter OTP",
+      otpSubtitle: "Enter the 6-digit OTP sent to your registered mobile number",
+      signAndPay: "Sign and Pay ₹18,800",
+      securePayment: "100% Secure Payment",
+    },
+    paymentSuccess: {
+      title: "Payment",
+      paymentSuccess: "Payment Successful!",
+      paidTo: "Payment of ₹{amount} has been made to {merchant}",
+      congratulations: "Congratulations! Your order is confirmed.",
+      orderId: "Order ID",
+      date: "Date",
+      paymentMethod: "Payment Method",
+      transactionId: "Transaction ID",
+      viewOrderDetails: "View Order Details",
+      goHome: "Go to Home",
     },
     common: {
       back: "Back",

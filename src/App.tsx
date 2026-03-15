@@ -1,44 +1,41 @@
 import { useState } from 'react';
-import WelcomePage from './pages/WelcomePage';
+import ProductPage from './pages/ProductPage';
 import LoginPage from './pages/LoginPage';
-import VerifyIdentityPage from './pages/VerifyIdentityPage';
+import IDScanPage from './pages/IDScanPage';
+import DetailsConfirmationPage from './pages/DetailsConfirmationPage';
 import BureauConsentPage from './pages/BureauConsentPage';
-import ScanProductPage from './pages/ScanProductPage';
-import EligibleLendersPage from './pages/EligibleLendersPage';
-import OfferDetailsPage from './pages/OfferDetailsPage';
-import LoanAgreementPage from './pages/LoanAgreementPage';
-import SecurityVerificationPage from './pages/SecurityVerificationPage';
-import SuccessPage from './pages/SuccessPage';
-import LanguageSelector from './components/LanguageSelector';
+import EMISelectionPage from './pages/EMISelectionPage';
+import PaymentSummaryPage from './pages/PaymentSummaryPage';
+import PINEntryPage from './pages/PINEntryPage';
+import PaymentSuccessPage from './pages/PaymentSuccessPage';
 import './App.css';
 
 export type Screen = 
-  | 'welcome' 
+  | 'product'
   | 'login'
-  | 'verify-identity'
+  | 'id-scan'
+  | 'details-confirmation'
   | 'bureau-consent'
-  | 'scan-product'
-  | 'eligible-lenders'
-  | 'offer-details'
-  | 'loan-agreement'
-  | 'security-verification'
-  | 'success';
+  | 'emi-selection'
+  | 'payment-summary'
+  | 'pin-entry'
+  | 'payment-success';
 
 const screenOrder: Screen[] = [
-  'welcome',
+  'product',
   'login',
-  'verify-identity',
+  'id-scan',
+  'details-confirmation',
   'bureau-consent',
-  'scan-product',
-  'eligible-lenders',
-  'offer-details',
-  'loan-agreement',
-  'security-verification',
-  'success'
+  'emi-selection',
+  'payment-summary',
+  'pin-entry',
+  'payment-success'
 ];
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState<Screen>('welcome');
+  const [currentScreen, setCurrentScreen] = useState<Screen>('product');
+  const [selectedPlan, setSelectedPlan] = useState<{amount: number; months: number; lenderName: string} | null>(null);
 
   const navigateTo = (screen: Screen) => {
     setCurrentScreen(screen);
@@ -58,61 +55,53 @@ function App() {
     }
   };
 
-  const handleGoToDashboard = () => {
-    alert('Navigating to Dashboard...');
+  const handlePlanSelect = (amount: number, months: number, lenderName: string) => {
+    setSelectedPlan({ amount, months, lenderName });
+    goNext();
   };
 
-  const handleDownloadReceipt = () => {
-    alert('Downloading receipt...');
-  };
-
-  const handleViewOtherOffers = () => {
-    navigateTo('eligible-lenders');
+  const handleGoHome = () => {
+    setCurrentScreen('product');
+    setSelectedPlan(null);
   };
 
   return (
     <div className="app">
       <div className="mobile-container">
-        <LanguageSelector />
-        {currentScreen === 'welcome' && (
-          <WelcomePage onGetStarted={goNext} />
+        {currentScreen === 'product' && (
+          <ProductPage onContinue={goNext} />
         )}
         {currentScreen === 'login' && (
-          <LoginPage onBack={goBack} onSendOTP={goNext} />
+          <LoginPage onBack={goBack} onContinue={goNext} />
         )}
-        {currentScreen === 'verify-identity' && (
-          <VerifyIdentityPage 
-            onBack={goBack} 
-            onContinue={goNext} 
-          />
+        {currentScreen === 'id-scan' && (
+          <IDScanPage onBack={goBack} onContinue={goNext} />
+        )}
+        {currentScreen === 'details-confirmation' && (
+          <DetailsConfirmationPage onBack={goBack} onContinue={goNext} />
         )}
         {currentScreen === 'bureau-consent' && (
           <BureauConsentPage onBack={goBack} onContinue={goNext} />
         )}
-        {currentScreen === 'scan-product' && (
-          <ScanProductPage onBack={goBack} onContinue={goNext} />
+        {currentScreen === 'emi-selection' && (
+          <EMISelectionPage onBack={goBack} onSelectPlan={handlePlanSelect} />
         )}
-        {currentScreen === 'eligible-lenders' && (
-          <EligibleLendersPage onBack={goBack} onContinue={goNext} />
-        )}
-        {currentScreen === 'offer-details' && (
-          <OfferDetailsPage 
+        {currentScreen === 'payment-summary' && (
+          <PaymentSummaryPage 
             onBack={goBack} 
             onContinue={goNext}
-            onViewOtherOffers={handleViewOtherOffers}
+            selectedPlan={selectedPlan}
           />
         )}
-        {currentScreen === 'loan-agreement' && (
-          <LoanAgreementPage onBack={goBack} onContinue={goNext} />
-        )}
-        {currentScreen === 'security-verification' && (
-          <SecurityVerificationPage onBack={goBack} onContinue={goNext} />
-        )}
-        {currentScreen === 'success' && (
-          <SuccessPage
-            onGoToDashboard={handleGoToDashboard}
-            onDownloadReceipt={handleDownloadReceipt}
+        {currentScreen === 'pin-entry' && (
+          <PINEntryPage 
+            onBack={goBack} 
+            onContinue={goNext} 
+            lenderName={selectedPlan?.lenderName || 'DMI Finance'}
           />
+        )}
+        {currentScreen === 'payment-success' && (
+          <PaymentSuccessPage onGoHome={handleGoHome} />
         )}
       </div>
     </div>

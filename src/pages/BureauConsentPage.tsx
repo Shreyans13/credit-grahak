@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import LanguageSelector from '../components/LanguageSelector';
 import './BureauConsentPage.css';
 
 interface BureauConsentPageProps {
@@ -18,7 +19,7 @@ const BureauConsentPage: React.FC<BureauConsentPageProps> = ({ onBack, onContinu
           <span className="material-icons">arrow_back</span>
         </button>
         <span className="header-title">{t.bureauConsent.title}</span>
-        <div className="header-spacer"></div>
+        <LanguageSelector />
       </header>
 
       <main className="bureau-content">
